@@ -20,6 +20,18 @@ module.exports = function(app) {
         
     });
     
+    //GET - individual to do by todo
+    app.get('/api/todo/:todo', function(req, res) {
+       
+       //mongoose method
+       Todos.find({ $and : [{todo: "Learn Node"}, {isDone: true}] }, function(err, todo) {
+           if (err) throw err;
+           
+           res.send(todo); //final http response
+       });
+        
+    });
+/*
     //GET - individual to do by id
     app.get('/api/todo/:id', function(req, res) {
        
@@ -31,7 +43,7 @@ module.exports = function(app) {
        });
         
     });
-    
+*/    
     app.post('/api/todo', function(req, res) {
         
         //body-parser gives us .body, is json data converted to a js object
