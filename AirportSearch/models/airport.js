@@ -51,3 +51,23 @@ module.exports.getAirportByState = function(stateCode, callback, limit){
 		}, callback).limit().sort([['name', 'ascending']]);
 	});
 }
+
+// Get Airports By Proximity
+module.exports.getAirportsByProximity = function(location, callback, limit){
+	Airport.find({
+		loc:{
+			$near: {
+				$geometry:{
+					type:"Point",
+					coordinates:[-73.965355,40.782865]
+				},
+				$maxDistance: 20000
+			}
+		}
+	},
+	{
+		name: 1,
+		code: 1,
+		_id: 0
+	}, callback).limit(limit);
+}
