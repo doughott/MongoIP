@@ -5,6 +5,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 Airport = require('./models/airport.js');
+State = require('./models/state.js');
 
 app.use(express_geocoding_api({
 	geocoder:{
@@ -25,6 +26,15 @@ app.get('/api', function(req, res){
 
 app.get('/api/airports', function(req, res){
 	Airport.getAirports(function(err, docs){
+		if(err){
+			res.send(err);
+		}
+		res.json(docs);
+	});
+});
+
+app.get('/api/states', function(req, res){
+	State.getStates(function(err, docs){
 		if(err){
 			res.send(err);
 		}
