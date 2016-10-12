@@ -89,8 +89,21 @@
       		</div>
       	</form>
       </div>
-      <br>
-     
+      <br> 
+      <div class="row">
+      	<h4>Search By Distance</h4>
+	      	<form>
+	      	<div class="col-md-6">
+	      		<input type="text" ng-model="location.address" class="form-control" placeholder="Enter Address">
+	      	</div>
+	      	<div class="col-md-4">
+				<input type="text" ng-model="location.distance" class="form-control" placeholder="Enter Kilometers">
+	      	</div>
+	      	<div class="col-md-2">
+	      		<button class="btn btn-primary" ng-click="findAirportsByProx()">Find</button>
+	      	</div>
+	      </form>
+      </div>	  
       <br>
       <div class="row" ng-init="getAirports()">
       	<div class="col-md-12">
