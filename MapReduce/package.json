@@ -1,0 +1,15 @@
+{
+  "name": "mongoDBMapReduce",
+  "version": "0.0.0",
+  "description": "A project to interact with MongoDB mapreduce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arvind Ravulavaru",
+  "license": "MIT",
+  "devDependencies": {
+    "mongojs": "^0.12.1",
+    "dummy-json": "0.0.2"
+  }
+}
